@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Store;
 
 class StoresController extends Controller
 {
@@ -17,7 +18,10 @@ class StoresController extends Controller
      */
     public function index()
     {
-        //
+        $stores = Store::all();
+        return view("stores.index", [
+            'Stores' => $stores
+        ]);
     }
 
     /**
