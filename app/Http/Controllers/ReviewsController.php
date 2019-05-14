@@ -20,7 +20,7 @@ class ReviewsController extends Controller
     {
         $reviews = Review::all();
         return view("reviews.index", [
-            'Reviews' => $reviews
+            'reviews' => $reviews
         ]);
     }
 
