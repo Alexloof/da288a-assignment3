@@ -42,7 +42,12 @@ class StoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Store;
+        $store->name = $request->input("name");
+        $store->city = $request->input("city");
+        $store->save();
+
+        return redirect()->route('stores.index');
     }
 
     /**
@@ -53,7 +58,11 @@ class StoresController extends Controller
      */
     public function show($id)
     {
-        //
+        $store = Store::find($id);
+        $store->products = $store->products;
+        return view("stores.show", [
+            'store' => $store
+        ]);
     }
 
     /**
@@ -79,7 +88,12 @@ class StoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $store = Store::find($id);
+        $store->name = $request->input("name");
+        $store->city = $request->input("city");
+        $store->save();
+
+        return redirect()->route('stores.index');
     }
 
     /**
@@ -90,6 +104,7 @@ class StoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Store::destroy($id);
+        return redirect()->route('stores.index');
     }
 }

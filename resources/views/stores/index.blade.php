@@ -19,7 +19,7 @@
         <td>{{$store->name}}</td>
         <td>{{$store->city}}</td>
         <td>
-          <a class="btn btn-primary float-right" href="{{ route('stores.edit', ['stores' => $store->id]) }}">ändra</a>
+          <a class="btn btn-primary float-right" href="{{ route('stores.show', ['stores' => $store->id]) }}">Visa</a>
         </td>
       </tr>
       @endforeach
