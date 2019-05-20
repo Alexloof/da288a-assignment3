@@ -12,7 +12,13 @@
         <small class="text-muted">Posted by {{$review->name}}</small>
         <span class="text-warning">{{str_repeat("★", $review->grade)}}</span>
       </div>
-      <a class="btn btn-primary" href="{{ route('reviews.edit', ['review' => $review->id]) }}">Ändra</a>
+      <div>
+        @auth
+        <a class="btn btn-secondary" href="{{ route('reviews.edit', ['review' => $review->id]) }}">Ändra</a>
+        @endauth
+        <a class="btn btn-primary" href="{{ route('reviews.show', ['review' => $review->id]) }}">Visa</a>
+      </div>
+
     </div>
     <hr>
     @endforeach

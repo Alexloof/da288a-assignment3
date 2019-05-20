@@ -7,7 +7,9 @@
       <h3 class="card-title">{{$store->name}}</h3>
       <h4>{{$store->city}}</h4>
     </div>
+    @auth
     <a class="btn btn-primary float-right" href="{{ route('stores.edit', ['store' => $store->id]) }}">Ändra butik</a>
+    @endauth
   </div>
 </div>
 <div class="card card-outline-secondary my-4">

@@ -19,7 +19,9 @@
   </div>
 </div>
 @endforeach
+@auth
 <div class="py-2">
   <a class="btn btn-primary" href="{{ route('products.create') }}">Lägg till produkt</a>
 </div>
+@endauth
 @endsection
