@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Store;
 
 class ProductsController extends Controller
 {
@@ -31,7 +32,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view("products.create");
+        $stores = Store::all();
+        return view("products.create", ['stores' => $stores]);
     }
 
     /**
@@ -53,7 +55,7 @@ class ProductsController extends Controller
         $stores = $request->input("stores");
         $product->stores()->attach($stores);
 
-        return response()->json(["success" => true]);
+        return redirect()->route('products.index');
     }
 
     /**
