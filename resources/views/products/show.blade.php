@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="card mt-4">
-    <img class="card-img-top img-fluid" src="{{$product->image}}" alt="{{$product->title}}">
+    <img class="card-img-top img-fluid" style="max-height: 500px; object-fit: contain;" src="{{$product->image}}" alt="{{$product->title}}">
     <div class="card-body">
         <h3 class="card-title">{{$product->title}}</h3>
         <h4>{{$product->price}} kr</h4>
         <p class="card-text">{{$product->description}}</p>
         <p class="card-text"><small class="text-muted">{{$product->brand}}</small></p>
-
+        <a class="btn btn-primary float-right" href="{{ route('products.edit', ['product' => $product->id]) }}">Ändra produkt</a>
     </div>
 </div>
 <!-- /.card -->

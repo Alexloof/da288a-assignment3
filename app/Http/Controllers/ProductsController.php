@@ -83,8 +83,11 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        $product->storesId = array_column($product->stores->toArray(), 'id');
+        $stores = Store::all();
         return view("products.edit", [
-            'product' => $product
+            'product' => $product,
+            'stores' => $stores,
         ]);
     }
 
@@ -121,6 +124,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
+        $product = Product::find($id);
+        $product->stores()->detach();
         Product::destroy($id);
         return redirect()->route('products.index');
     }
