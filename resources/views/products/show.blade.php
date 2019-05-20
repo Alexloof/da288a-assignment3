@@ -24,7 +24,7 @@
         <span class="text-warning">{{str_repeat("★", $review->grade)}}</span>
         <hr>
         @endforeach
-        <a href="{{ route('reviews.create', ['products' => $product->id]) }}" class="btn btn-success">Leave a Review</a>
+        <a href="{{ route('reviews.create', ['productId' => $product->id]) }}" class="btn btn-success">Leave a Review</a>
     </div>
 </div>
 <!-- /.card -->
