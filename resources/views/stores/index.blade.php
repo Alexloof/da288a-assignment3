@@ -26,8 +26,10 @@
     </tbody>
   </table>
 </div>
+@auth
 <div class="py-2">
   <a class="btn btn-primary" href="{{ route('stores.create') }}">Lägg till butik</a>
 </div>
+@endauth
 
 @endsection
