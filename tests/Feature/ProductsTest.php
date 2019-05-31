@@ -24,6 +24,7 @@ class ProductsTest extends TestCase
         $this->assertAuthenticationRequired('/products/create');
         $this->assertAuthenticationRequired('/products/1', 'put');
         $this->assertAuthenticationRequired('/products/1', 'delete');
+        $this->assertAuthenticationRequired('/products/1/edit');
     }
 
     // test product index page renders successfully
