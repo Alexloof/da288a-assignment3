@@ -20,13 +20,11 @@ composer install
 ### Create the database tables and seed data
 
 ```
-php artisan migrate
-php artisan db:seed
+php artisan migrate:refresh --seed
 ```
 
 ### Start the application
 
 ```
-cd public
 php -S localhost:8000 -t public
 ```
