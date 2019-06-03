@@ -25,15 +25,16 @@ services:
 
   # The Database
   database:
-    image: mysql:5.6
+    image: mysql:5.7
     volumes:
       - dbdata:/var/lib/mysql
     environment:
       - 'MYSQL_DATABASE=da_ass3'
       - 'MYSQL_USER=root'
-      - 'MYSQL_PASSWORD='
-      - 'MYSQL_ROOT_PASSWORD='
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=secret'
     ports:
       - '33061:3306'
 
-volumes: dbdata:
+volumes:
+  dbdata:
