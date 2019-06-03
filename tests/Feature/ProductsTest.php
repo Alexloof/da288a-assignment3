@@ -7,6 +7,15 @@ use Tests\TestCase;
 use Tests\WithStubUser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
+
+/* 
+  Vi valde fokusera våra tester på alla operation för produkterna, då 
+  allt krestar kring produkterna i denna app. Utöver produkterna testar vi även
+  authentication som är en viktig feature. 
+
+  PS. tester för Stores och Reviews skulle se liknande ut om man hade gjort tester på dessa.
+*/
+
 class ProductsTest extends TestCase
 {
     use DatabaseMigrations, WithStubUser;
