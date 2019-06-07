@@ -25,8 +25,7 @@ steps:
   - script: composer install --no-interaction --prefer-dist
     displayName: 'composer install'
 
-  - powershell: ./ setEnvironmentVariables.ps1
-    arguments: '$env:DB_CONNECTION $env:DB_HOST $env:DB_PORT $env:DB_HOST $env:DB_DATABASE $env:DB_USERNAME $env:DB_PASSWORD $env:MYSQL_SSL'
+  - powershell: ./setEnvironmentVariables.ps1 $env:DB_CONNECTION $env:DB_HOST $env:DB_PORT $env:DB_HOST $env:DB_DATABASE $env:DB_USERNAME $env:DB_PASSWORD $env:MYSQL_SSL
     displayName: 'Set Database Env Variables'
 
   - script: ./vendor/bin/phpunit
