@@ -1,5 +1,7 @@
 # da288a-assignment3
 
+[![Build Status](https://dev.azure.com/ag8190/molnbutiken/_apis/build/status/Alexloof.da288a-assignment3?branchName=master)](https://dev.azure.com/ag8190/molnbutiken/_build/latest?definitionId=1&branchName=master)
+
 ### This project was built using XAMPP 7.3.5 and Composer 1.8.4
 
 Open XAMPP and start the modules Apache and MySQL
