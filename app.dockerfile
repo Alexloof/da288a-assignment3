@@ -52,3 +52,4 @@ USER www
 
 EXPOSE 8080
 CMD ["php-fpm"]
+
