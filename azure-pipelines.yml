@@ -25,6 +25,9 @@ steps:
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
 
+- script: ./vendor/bin/phpunit
+  displayName: 'run tests with phpunit'
+
 - script: |
     docker-compose build
     docker tag $(appImageName) $(dockerId).azurecr.io/assignment3app:latest
