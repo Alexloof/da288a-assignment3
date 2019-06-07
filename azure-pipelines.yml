@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -13,25 +13,29 @@ variables:
   phpVersion: 7.2
 
 steps:
-- script: |
-    sudo update-alternatives --set php /usr/bin/php$(phpVersion)
-    sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
-    sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
-    sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
-    sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-    php -version
-  displayName: 'Use PHP version $(phpVersion)'
+  - script: |
+      sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+      sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+      sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+      sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+      sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+      php -version
+    displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
+  - script: composer install --no-interaction --prefer-dist
+    displayName: 'composer install'
 
-- script: ./vendor/bin/phpunit
-  displayName: 'run tests with phpunit'
+  - powershell: ./ setEnvironmentVariables.ps1
+    arguments: '$env:DB_CONNECTION $env:DB_HOST $env:DB_PORT $env:DB_HOST $env:DB_DATABASE $env:DB_USERNAME $env:DB_PASSWORD $env:MYSQL_SSL'
+    displayName: 'Set Database Env Variables'
 
-- script: |
-    docker-compose build
-    docker tag $(appImageName) $(dockerId).azurecr.io/assignment3app:latest
-    docker tag $(webImageName) $(dockerId).azurecr.io/assignment3web:latest
-    docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
-    docker push $(dockerId).azurecr.io/assignment3app:latest
-    docker push $(dockerId).azurecr.io/assignment3web:latest
+  - script: ./vendor/bin/phpunit
+    displayName: 'run tests with phpunit'
+
+  - script: |
+      docker-compose build
+      docker tag $(appImageName) $(dockerId).azurecr.io/assignment3app:latest
+      docker tag $(webImageName) $(dockerId).azurecr.io/assignment3web:latest
+      docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
+      docker push $(dockerId).azurecr.io/assignment3app:latest
+      docker push $(dockerId).azurecr.io/assignment3web:latest
