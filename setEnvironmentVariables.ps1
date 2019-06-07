@@ -17,10 +17,10 @@ Write-Output "dbPassword that was passed in from Azure DevOps=>$dbPassword"
 Write-Output "mySqlSSL that was passed in from Azure DevOps=>$mySqlSSL"
 
 
-[Environment]::SetEnvironmentVariable("DB_CONNECTION", "$dbConnection", "Database")
-[Environment]::SetEnvironmentVariable("DB_HOST", "$dbHost", "Database")
-[Environment]::SetEnvironmentVariable("DB_PORT", "$dbPort", "Database")
-[Environment]::SetEnvironmentVariable("DB_DATABASE", "$dbDatabase", "Database")
-[Environment]::SetEnvironmentVariable("DB_USERNAME", "$dbUsername", "Database")
-[Environment]::SetEnvironmentVariable("DB_PASSWORD", "$dbPassword", "Database")
-[Environment]::SetEnvironmentVariable("MYSQL_SSL", "$mySqlSSL", "Database")
+[Environment]::SetEnvironmentVariable("DB_CONNECTION", "$dbConnection")
+[Environment]::SetEnvironmentVariable("DB_HOST", "$dbHost")
+[Environment]::SetEnvironmentVariable("DB_PORT", "$dbPort")
+[Environment]::SetEnvironmentVariable("DB_DATABASE", "$dbDatabase")
+[Environment]::SetEnvironmentVariable("DB_USERNAME", "$dbUsername")
+[Environment]::SetEnvironmentVariable("DB_PASSWORD", "$dbPassword")
+[Environment]::SetEnvironmentVariable("MYSQL_SSL", "$mySqlSSL")
