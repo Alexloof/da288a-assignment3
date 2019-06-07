@@ -5,8 +5,9 @@ Param(
 [string]$dbDatabase,
 [string]$dbUsername,
 [string]$dbPassword,
-[string]$mySqlSSL,
+[string]$mySqlSSL
 )
+
 Write-Output "dbConnection that was passed in from Azure DevOps=>$dbConnection"
 Write-Output "dbHost that was passed in from Azure DevOps=>$dbHost"
 Write-Output "dbPort that was passed in from Azure DevOps=>$dbPort"
