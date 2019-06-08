@@ -5,7 +5,7 @@
     <div class="card" style="width: 50%; margin-bottom: 40px;">
         <img src="https://i2.wp.com/www.techjaja.com/wp-content/uploads/2018/07/gadgets.jpeg?fit=1880%2C1015&ssl=1" class="card-img-top" alt="collection of tech gadgets">
         <div class="card-body">
-            <h5 class="card-title">Produkter</h5>
+            <h5 class="card-title">ProdukteR</h5>
             <p class="card-text">Coola prylar med recensioner, bilder och var man kan köpa dessa</p>
             <a href="{{ route('products.index') }}" class="btn btn-primary">Visa Produkter</a>
         </div>
