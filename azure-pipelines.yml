@@ -28,6 +28,9 @@ steps:
   - script: ./vendor/bin/phpunit
     displayName: 'run tests with phpunit'
 
+    # not optimal solution but okey for assignment purpose?
+    # this will wipe and reset the database every build... :D
+    # a better solution would be a local database setup for test suits or a another live database for tests
   - script: php artisan migrate:refresh --seed --force --no-interaction
     displayName: 'migrate and seed database'
 
